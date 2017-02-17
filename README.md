@@ -1,5 +1,7 @@
 # Interactive presentations with R
 
+[![DOI](https://zenodo.org/badge/82212447.svg)](https://zenodo.org/badge/latestdoi/82212447)
+
 [*A code-along lesson for the CERN Study Group*](https://github.com/CERNStudyGroup/cernstudygroup.github.io/issues/46)
 
 You can view the presentation here: [https://via.hypothes.is/https://raoofphysics.github.io/201702_R-presentations/](https://via.hypothes.is/https://raoofphysics.github.io/201702_R-presentations/)
