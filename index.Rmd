@@ -160,9 +160,6 @@ ggplotly(p)
 for 
 annotations
 
-</section><!--Remove this line in the final file.-->
-
-<!--
 ## Commit early, commit often
 
 - Preparing your presentation is an opportunity for collaboration
@@ -186,4 +183,3 @@ off to Zenodo
 ## Questions?
 
 Discussion here: [github:CERNStudyGroup/cernstudygroup.github.io #46](https://github.com/CERNStudyGroup/cernstudygroup.github.io/issues/46)
--->
