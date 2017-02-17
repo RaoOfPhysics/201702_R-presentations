@@ -2,6 +2,8 @@
 
 [*A code-along lesson for the CERN Study Group*](https://github.com/CERNStudyGroup/cernstudygroup.github.io/issues/46)
 
+You can view the presentation here: [https://via.hypothes.is/https://raoofphysics.github.io/201702_R-presentations/](https://via.hypothes.is/https://raoofphysics.github.io/201702_R-presentations/)
+
 The slides should also be available on a mobile browser, although Firefox isn't loading the interactive plots for some reason. Against my better judgement, I recommend you use Chrome on Android to view the content.
 
 If you use hypothes.is, please annotate the presentation! I will be grateful for any notes you leave.
