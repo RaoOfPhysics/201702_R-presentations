@@ -1,0 +1,189 @@
+---
+title: "R Presentations for the CERN Study Group"
+author: "Achintya Rao"
+date: "17 February 2017"
+output: 
+    revealjs::revealjs_presentation:
+        theme: serif
+        highlight: pygments
+        incremental: true
+        center: true
+        transition: slide
+        reveal_options:
+            slideNumber: true
+        fig_caption: true
+        showNotes: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotly)
+```
+
+---
+
+<section><h1>Some eye-candy</h1>
+
+## Responsive presentations with interactivity
+
+- Example repo: [github.com/RaoOfPhysics/201604_PCST](https://github.com/RaoOfPhysics/201604_PCST)
+- In action: [via.hypothes.is/https://raoofphysics.github.io/201604_PCST/](https://via.hypothes.is/https://raoofphysics.github.io/201604_PCST/)
+- File generating the presentation: [raw.githubusercontent.com/RaoOfPhysics/201604_PCST/gh-pages/index.Rmd](https://raw.githubusercontent.com/RaoOfPhysics/201604_PCST/gh-pages/index.Rmd)
+- Zenodo DOI: [10.5281/zenodo.50791](http://dx.doi.org/10.5281/zenodo.50791) 
+
+</section>
+
+---
+
+<section><h1>HOWTO</h1>
+
+## Tool chain
+
+- [R](https://www.r-project.org/) + [RStudio](https://www.rstudio.com/)
+- [R Markdown](http://rmarkdown.rstudio.com/) 
+[[Cheatsheet PDF](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)] -- authoring
+- [ggplot2](http://ggplot2.org/) -- making plots
+- [plotly](https://plot.ly/) -- plot interactivity
+- [reveal.js](http://lab.hakim.se/reveal-js/) -- displaying
+- [GitHub Pages](https://pages.github.com/) -- sharing
+- [Hypothesis](https://hypothes.is/) -- annotating
+
+## Workflow
+
+- Create a directory for your project
+- Open RStudio
+- Create a new `R Markdown` HTML file named `index.Rmd`
+- Switch to console run:
+    - `install.packages("ggplot2")`
+    - `install.packages("plotly")`
+    - `install.packages("revealjs")`
+
+## Workflow (contd.)
+
+- Add [YAML](http://www.yaml.org/) frontmatter!
+- Instructions for reveal.js presentations: [rmarkdown.rstudio.com/revealjs_presentation_format.html](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
+- Create sections and add content
+- Knit your presentation!
+
+</section>
+
+---
+
+<section><h1>Using R code in your presentation</h1>
+
+- Source: [https://jofrhwld.github.io/avml2012/](https://jofrhwld.github.io/avml2012/)
+
+## Example of some code
+
+```{r cars}
+summary(mtcars)
+```
+
+## Static plots
+
+```{r, echo=FALSE}
+
+# Code from https://jofrhwld.github.io/avml2012/
+# Taken as an example only under fair-use practice
+# All rights reserved by the original author
+
+p <- ggplot(mtcars, aes(x = factor(1), fill = factor(cyl))) + 
+  geom_bar(width = 0.8, position = "dodge", color = "black")
+
+p
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent 
+printing of the R code that generated the plot.
+
+## Interactive plots!
+
+```{r, echo=FALSE}
+
+# Code from https://jofrhwld.github.io/avml2012/
+# Taken as an example only under fair-use practice
+# All rights reserved by the original author
+
+ggplotly(p)
+```
+
+## Import some data
+
+```{r}
+I_jean <- read.delim("http://bit.ly/avml_ggplot2_data")
+head(I_jean)
+```
+
+## Make more plates!
+
+```{r, echo=FALSE}
+
+# Code from https://jofrhwld.github.io/avml2012/
+# Taken as an example only under fair-use practice
+# All rights reserved by the original author
+
+p <- ggplot(I_jean, aes(x = Dur_msec, y = F1.n)) + 
+  geom_point() + 
+  stat_smooth(method="loess") +
+  scale_x_log10(breaks = c(50, 100,200,300,400)) +
+  scale_y_reverse() +
+  ylab("Normalized F1") +
+  xlab("Vowel duration (msec)") +
+  theme_bw() +
+  labs(title = "394 tokens of 'I' from one speaker")
+
+ggplotly(p)
+```
+
+</section>
+
+---
+
+<section><h1>Versioning, sharing, archiving</h1>
+
+## Git going!
+
+- `$ git init`
+- Create a `.gitignore` and include `.RData` and `.Rhistory`
+- Add `index.Rmd` and `index.html`
+- Commit!
+
+## Hosting your presentation on GitHub
+
+- Create a GitHub repository to store your code and presentation
+- Push to GitHub
+- Activate GitHub Pages
+- **Important!** Don't forget to include `README` and `LICENSE` files!
+- This presentation: [github.com/RaoOfPhysics/201702_R-presentations](https://github.com/RaoOfPhysics/201702_R-presentations)
+- Point to the presentation website in your repo's description…
+- … with the [*via* proxy](https://hypothes.is/blog/meetvia/) from hypothesis 
+for 
+annotations
+
+</section><!--Remove this line in the final file.-->
+
+<!--
+## Commit early, commit often
+
+- Preparing your presentation is an opportunity for collaboration
+- Send all your commits to GitHub and deploy your presentation incrementally
+- Receive feedback in the form of issues or pull requests
+
+## Archiving on Zenodo
+
+- [Zenodo](https://zenodo.org/) is a service provided by CERN for archiving all 
+kinds of research outputs, including presentations
+- After giving your talk (with the final file), create a "Release" and send it 
+off to Zenodo
+    - [guides.github.com/activities/citable-code/](https://guides.github.com/activities/citable-code/)
+    - [zenodo.org/account/settings/github/](https://zenodo.org/account/settings/github/)
+- Mint a DOI and add a badge to your `README`
+
+</section>
+
+---
+
+## Questions?
+
+Discussion here: [github:CERNStudyGroup/cernstudygroup.github.io #46](https://github.com/CERNStudyGroup/cernstudygroup.github.io/issues/46)
+-->
